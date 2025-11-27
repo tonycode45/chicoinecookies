@@ -4,7 +4,7 @@ export const products = [
         name: "The Classic Chip",
         description: "Our signature cookie loaded with semi-sweet chocolate chunks and a hint of sea salt.",
         price: 4.50,
-        image: "/images/classic-chip.jpg", // Placeholder
+        image: "/images/classic-chip.jpg",
         category: "Classic",
         isBestseller: true,
         allergens: ["Gluten", "Dairy", "Eggs"],
