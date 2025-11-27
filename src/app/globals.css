@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+:root {
+  /* Brand Colors */
+  --color-primary: #8B4513; /* Saddle Brown */
+  --color-primary-foreground: #FFF8DC; /* Cornsilk */
+  
+  --color-secondary: #FFF8DC; /* Cornsilk / Cream */
+  --color-secondary-foreground: #5D4037; /* Dark Brown */
+
+  --color-accent-pink: #FFB7B2;
+  --color-accent-blue: #AEC6CF;
+  --color-accent-pistachio: #B2D8B2;
+
+  --color-background: #FFFAF0; /* Floral White */
+  --color-foreground: #4E342E; /* Dark Brown Text */
+
+  --color-muted: #F5DEB3; /* Wheat */
+  --color-muted-foreground: #8D6E63;
+
+  --color-card: #FFFFFF;
+  --color-card-foreground: #4E342E;
+
+  --color-border: #E6CCB2;
+  --color-input: #E6CCB2;
+  --color-ring: #8B4513;
+
+  /* Radius */
+  --radius: 0.5rem;
+}
+
+@theme inline {
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+  
+  --color-primary: var(--color-primary);
+  --color-primary-foreground: var(--color-primary-foreground);
+  
+  --color-secondary: var(--color-secondary);
+  --color-secondary-foreground: var(--color-secondary-foreground);
+  
+  --color-accent-pink: var(--color-accent-pink);
+  --color-accent-blue: var(--color-accent-blue);
+  --color-accent-pistachio: var(--color-accent-pistachio);
+  
+  --color-muted: var(--color-muted);
+  --color-muted-foreground: var(--color-muted-foreground);
+  
+  --color-card: var(--color-card);
+  --color-card-foreground: var(--color-card-foreground);
+  
+  --color-border: var(--color-border);
+  --color-input: var(--color-input);
+  --color-ring: var(--color-ring);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+}
