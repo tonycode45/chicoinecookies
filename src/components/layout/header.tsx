@@ -4,6 +4,7 @@ import Link from "next/link"
 import { ShoppingBag, User, Menu, Search } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Container } from "@/components/layout/container"
+import { ThemeToggle } from "@/components/ui/theme-toggle"
 import { useState } from "react"
 import { cn } from "@/lib/utils"
 
@@ -58,6 +59,7 @@ export function Header() {
                             <Search className="h-5 w-5" />
                             <span className="sr-only">Search</span>
                         </Button>
+                        <ThemeToggle />
                         <Button variant="ghost" size="icon">
                             <User className="h-5 w-5" />
                             <span className="sr-only">Account</span>
