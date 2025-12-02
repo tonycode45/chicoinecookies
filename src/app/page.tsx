@@ -17,15 +17,20 @@ export default function Home() {
         <Container className="relative z-10">
           <div className="max-w-2xl space-y-8">
             <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
-              Fresh from the oven
+              Handcrafted in Canada 🍁
             </Badge>
             <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl font-serif">
-              Baked with Love, <br />
-              Shared with Joy.
+              Cookies Crafted to <br />
+              Warm the Soul.
             </h1>
-            <p className="text-lg text-muted-foreground md:text-xl max-w-lg">
-              Experience the warmth of artisanal cookies, handcrafted with premium ingredients and a sprinkle of nostalgia.
-            </p>
+            <div className="space-y-4">
+              <p className="text-lg text-muted-foreground md:text-xl max-w-lg font-medium">
+                Freshly baked with premium ingredients & real love.
+              </p>
+              <p className="text-base text-muted-foreground/80 max-w-lg">
+                Every cookie is handcrafted in small batches using the finest ingredients. From rich Belgian chocolate to locally sourced butter, we never compromise on quality.
+              </p>
+            </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" asChild>
                 <Link href="/shop">Shop All Cookies</Link>
@@ -36,18 +41,102 @@ export default function Home() {
             </div>
           </div>
         </Container>
-        {/* Hero Image */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] -z-10 opacity-80">
+        {/* Hero Image with gradient shadow */}
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] -z-10">
           <div className="relative w-full h-full">
             <Image
               src="/images/hero-cookies.jpg"
-              alt="Delicious cookies"
+              alt="Premium handcrafted cookies"
               fill
-              className="object-cover rounded-full blur-sm"
+              className="object-cover rounded-full"
               priority
             />
+            {/* Soft gradient overlay on the right */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-transparent to-background/40" />
+            {/* Subtle shadow */}
+            <div className="absolute inset-0 rounded-full shadow-2xl" />
           </div>
         </div>
+      </section>
+
+      {/* Best Sellers Quick View */}
+      <section className="py-16 md:py-20 bg-background border-y">
+        <Container>
+          <div className="mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tight font-serif mb-2">Bestsellers</h2>
+            <p className="text-muted-foreground">The cookies everyone can't stop talking about</p>
+          </div>
+
+          {/* Horizontal scroll on mobile, grid on desktop */}
+          <div className="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0 scrollbar-hide">
+            <div className="flex md:grid md:grid-cols-4 gap-6 min-w-max md:min-w-0">
+              <div className="flex-shrink-0 w-[280px] md:w-auto group cursor-pointer">
+                <Link href="/product/1">
+                  <div className="aspect-square relative rounded-lg overflow-hidden mb-3 bg-secondary/30">
+                    <Image
+                      src="/images/classic-chip.jpg"
+                      alt="Chocolate Chunk"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <h3 className="font-semibold group-hover:text-primary transition-colors">The Classic Chip</h3>
+                  <p className="text-sm text-muted-foreground mt-1">Rich chocolate chunks</p>
+                </Link>
+              </div>
+
+              <div className="flex-shrink-0 w-[280px] md:w-auto group cursor-pointer">
+                <Link href="/product/2">
+                  <div className="aspect-square relative rounded-lg overflow-hidden mb-3 bg-secondary/30">
+                    <Image
+                      src="/images/double-chocolate.jpg"
+                      alt="White Chocolate Macadamia"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <h3 className="font-semibold group-hover:text-primary transition-colors">Midnight Double Chocolate</h3>
+                  <p className="text-sm text-muted-foreground mt-1">Dark chocolate perfection</p>
+                </Link>
+              </div>
+
+              <div className="flex-shrink-0 w-[280px] md:w-auto group cursor-pointer">
+                <Link href="/product/4">
+                  <div className="aspect-square relative rounded-lg overflow-hidden mb-3 bg-secondary/30">
+                    <Image
+                      src="/images/birthday-cake.jpg"
+                      alt="Birthday Cake"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <h3 className="font-semibold group-hover:text-primary transition-colors">Birthday Cake</h3>
+                  <p className="text-sm text-muted-foreground mt-1">Rainbow sprinkles & vanilla</p>
+                </Link>
+              </div>
+
+              <div className="flex-shrink-0 w-[280px] md:w-auto group cursor-pointer">
+                <Link href="/product/5">
+                  <div className="aspect-square relative rounded-lg overflow-hidden mb-3 bg-secondary/30">
+                    <Image
+                      src="/images/salted-caramel.jpg"
+                      alt="Salted Caramel Chip"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <h3 className="font-semibold group-hover:text-primary transition-colors">Salted Caramel Pretzel</h3>
+                  <p className="text-sm text-muted-foreground mt-1">Sweet meets salty</p>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Scroll indicator for mobile */}
+          <div className="md:hidden text-center mt-6">
+            <p className="text-xs text-muted-foreground">Swipe to see more →</p>
+          </div>
+        </Container>
       </section>
 
       {/* Bestsellers Section */}
@@ -107,6 +196,39 @@ export default function Home() {
               <Link href="/shop">View all cookies</Link>
             </Button>
           </div>
+        </Container>
+      </section>
+
+      {/* About Us Preview */}
+      <section className="py-24">
+        <Container className="max-w-4xl">
+          <Card className="border-2 hover:shadow-lg transition-shadow duration-300 overflow-hidden group cursor-pointer">
+            <Link href="/story">
+              <CardContent className="p-8 md:p-12">
+                <div className="flex flex-col md:flex-row items-center gap-8">
+                  <div className="flex-shrink-0 w-24 h-24 md:w-32 md:h-32 relative rounded-full bg-secondary/50 overflow-hidden">
+                    <Image
+                      src="/images/story-teaser.jpg"
+                      alt="Our Story"
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="flex-1 text-center md:text-left space-y-3">
+                    <h3 className="text-2xl md:text-3xl font-bold font-serif group-hover:text-primary transition-colors">
+                      The Story Behind Chicoine Cookies
+                    </h3>
+                    <p className="text-muted-foreground text-lg">
+                      From a family recipe to your doorstep. Discover how our passion for baking turned into a Canadian cookie legacy.
+                    </p>
+                    <div className="inline-flex items-center text-primary font-medium group-hover:gap-3 gap-2 transition-all">
+                      Learn More <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Link>
+          </Card>
         </Container>
       </section>
 
