@@ -20,11 +20,14 @@ export default function Home() {
               Fresh from the oven
             </Badge>
             <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl font-serif">
-              Baked with Love, <br />
-              Shared with Joy.
+              Cookies Crafted to <br />
+              Warm the Soul.
             </h1>
-            <p className="text-lg text-muted-foreground md:text-xl max-w-lg">
-              Experience the warmth of artisanal cookies, handcrafted with premium ingredients and a sprinkle of nostalgia.
+            <p className="text-lg text-muted-foreground md:text-xl max-w-lg leading-relaxed">
+              Freshly baked with premium ingredients & real love.
+            </p>
+            <p className="text-base text-muted-foreground/80 italic">
+              Handcrafted in Canada
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" asChild>
@@ -36,16 +39,20 @@ export default function Home() {
             </div>
           </div>
         </Container>
-        {/* Hero Image */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] -z-10 opacity-80">
+        {/* Hero Image with gradient shadow */}
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] -z-10">
           <div className="relative w-full h-full">
             <Image
               src="/images/hero-cookies.jpg"
               alt="Delicious cookies"
               fill
-              className="object-cover rounded-full blur-sm"
+              className="object-cover rounded-full"
               priority
             />
+            {/* Soft gradient overlay */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-l from-transparent via-secondary/40 to-secondary/60" />
+            {/* Subtle shadow */}
+            <div className="absolute inset-0 rounded-full shadow-2xl opacity-50" />
           </div>
         </div>
       </section>
@@ -55,7 +62,7 @@ export default function Home() {
         <Container>
           <div className="flex items-center justify-between mb-12">
             <div>
-              <h2 className="text-3xl font-bold tracking-tight font-serif">Fan Favorites</h2>
+              <h2 className="text-3xl font-bold tracking-tight font-serif">Bestsellers</h2>
               <p className="text-muted-foreground mt-2">Our most loved creations.</p>
             </div>
             <Button variant="ghost" asChild className="hidden sm:flex">
@@ -65,9 +72,48 @@ export default function Home() {
             </Button>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Desktop grid / Mobile horizontal scroll */}
+          <div className="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-8 hidden">
             {bestsellers.map((product) => (
               <Card key={product.id} className="overflow-hidden group border-none shadow-none bg-transparent">
+                <div className="aspect-square relative rounded-xl bg-secondary/50 overflow-hidden mb-4">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  {product.isBestseller && (
+                    <Badge className="absolute top-4 left-4 bg-white/90 text-primary hover:bg-white shadow-sm backdrop-blur-sm z-10">
+                      Bestseller
+                    </Badge>
+                  )}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 pointer-events-none" />
+                </div>
+                <CardHeader className="p-0 mb-2">
+                  <div className="flex justify-between items-start">
+                    <CardTitle className="text-lg font-serif group-hover:text-primary transition-colors">
+                      <Link href={`/product/${product.id}`}>{product.name}</Link>
+                    </CardTitle>
+                    <span className="font-medium">${product.price.toFixed(2)}</span>
+                  </div>
+                </CardHeader>
+                <CardContent className="p-0 mb-4">
+                  <CardDescription className="line-clamp-2">
+                    {product.description}
+                  </CardDescription>
+                </CardContent>
+                <CardFooter className="p-0">
+                  <Button className="w-full" variant="secondary">Add to Cart</Button>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+
+          {/* Mobile horizontal scroll */}
+          <div className="flex sm:hidden overflow-x-auto gap-6 pb-4 -mx-4 px-4 snap-x snap-mandatory scrollbar-hide">
+            {bestsellers.map((product) => (
+              <Card key={product.id} className="overflow-hidden group border-none shadow-none bg-transparent flex-shrink-0 w-[280px] snap-start">
                 <div className="aspect-square relative rounded-xl bg-secondary/50 overflow-hidden mb-4">
                   <Image
                     src={product.image}
@@ -107,6 +153,48 @@ export default function Home() {
               <Link href="/shop">View all cookies</Link>
             </Button>
           </div>
+        </Container>
+      </section>
+
+      {/* About Us Preview Card */}
+      <section className="py-16 md:py-24 bg-secondary/20">
+        <Container>
+          <Card className="border-none shadow-lg bg-background/80 backdrop-blur-sm overflow-hidden hover:shadow-xl transition-shadow">
+            <CardContent className="p-8 md:p-12">
+              <div className="flex flex-col md:flex-row items-center gap-8">
+                <div className="flex-1 space-y-4">
+                  <h3 className="text-2xl md:text-3xl font-bold font-serif">The Story Behind Chicoine Cookies</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    From a small kitchen in Canada to your home, discover the passion and craftsmanship
+                    that goes into every batch. Each cookie tells a story of tradition, quality, and love.
+                  </p>
+                  <Button variant="default" asChild className="mt-4">
+                    <Link href="/story" className="group">
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  </Button>
+                </div>
+                <div className="flex-shrink-0">
+                  <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-primary/10 flex items-center justify-center">
+                    <svg
+                      className="w-16 h-16 md:w-20 md:h-20 text-primary"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </Container>
       </section>
 
