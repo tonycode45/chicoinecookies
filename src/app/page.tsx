@@ -1,11 +1,12 @@
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, Star } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Container } from "@/components/layout/container"
 import { products } from "@/lib/data"
+import { HeartCookieIcon, FlameIcon } from "@/components/icons/custom-icons"
 
 export default function Home() {
   const bestsellers = products.filter((product) => product.isBestseller)
@@ -16,7 +17,8 @@ export default function Home() {
       <section className="relative bg-secondary/30 py-20 md:py-32 lg:py-40 overflow-hidden">
         <Container className="relative z-10">
           <div className="max-w-2xl space-y-8">
-            <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
+            <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20 transition-colors inline-flex items-center gap-1.5">
+              <FlameIcon className="w-4 h-4" />
               Fresh from the oven
             </Badge>
             <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl font-serif">
@@ -27,10 +29,10 @@ export default function Home() {
               Experience the warmth of artisanal cookies, handcrafted with premium ingredients and a sprinkle of nostalgia.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" asChild>
+              <Button size="lg" asChild className="btn-grow-hover">
                 <Link href="/shop">Shop All Cookies</Link>
               </Button>
-              <Button size="lg" variant="outline" asChild>
+              <Button size="lg" variant="outline" asChild className="btn-grow-hover">
                 <Link href="/build-box">Build Your Box</Link>
               </Button>
             </div>
@@ -140,7 +142,7 @@ export default function Home() {
       {/* Newsletter / CTA */}
       <section className="py-20 md:py-32 text-center">
         <Container className="max-w-3xl">
-          <Star className="w-12 h-12 text-primary mx-auto mb-6 fill-current opacity-20" />
+          <HeartCookieIcon className="w-12 h-12 text-primary mx-auto mb-6 opacity-80" />
           <h2 className="text-3xl md:text-4xl font-bold font-serif mb-6">Join the Cookie Club</h2>
           <p className="text-muted-foreground text-lg mb-8">
             Get exclusive access to limited drops, secret flavors, and sweet deals delivered straight to your inbox.

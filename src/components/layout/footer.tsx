@@ -18,14 +18,20 @@ export function Footer() {
                             Making the world sweeter, one bite at a time.
                         </p>
                         <div className="mt-6 flex gap-4">
-                            <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full">
-                                <Instagram className="h-4 w-4" />
+                            <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full" asChild>
+                                <a href="https://instagram.com/chicoinecookies" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                                    <Instagram className="h-4 w-4" />
+                                </a>
                             </Button>
-                            <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full">
-                                <Facebook className="h-4 w-4" />
+                            <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full" asChild>
+                                <a href="https://facebook.com/chicoinecookies" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                                    <Facebook className="h-4 w-4" />
+                                </a>
                             </Button>
-                            <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full">
-                                <Twitter className="h-4 w-4" />
+                            <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full" asChild>
+                                <a href="https://twitter.com/chicoinecookies" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                                    <Twitter className="h-4 w-4" />
+                                </a>
                             </Button>
                         </div>
                     </div>
