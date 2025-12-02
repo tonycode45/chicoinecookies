@@ -4,7 +4,7 @@
   /* Brand Colors */
   --color-primary: #8B4513; /* Saddle Brown */
   --color-primary-foreground: #FFF8DC; /* Cornsilk */
-  
+
   --color-secondary: #FFF8DC; /* Cornsilk / Cream */
   --color-secondary-foreground: #5D4037; /* Dark Brown */
 
@@ -27,6 +27,32 @@
 
   /* Radius */
   --radius: 0.5rem;
+}
+
+.dark {
+  /* Dark Theme Colors */
+  --color-primary: #A0653A; /* Lighter brown for dark mode */
+  --color-primary-foreground: #1A1410; /* Dark background text */
+
+  --color-secondary: #2C2319; /* Dark brown */
+  --color-secondary-foreground: #F5DEB3; /* Light wheat */
+
+  --color-accent-pink: #8B5F5F;
+  --color-accent-blue: #5F7A8B;
+  --color-accent-pistachio: #5F7A5F;
+
+  --color-background: #1A1410; /* Very dark brown */
+  --color-foreground: #F5DEB3; /* Light wheat text */
+
+  --color-muted: #2C2319; /* Dark muted brown */
+  --color-muted-foreground: #A0917D;
+
+  --color-card: #241D17; /* Dark card background */
+  --color-card-foreground: #F5DEB3;
+
+  --color-border: #3A2E28;
+  --color-input: #3A2E28;
+  --color-ring: #A0653A;
 }
 
 @theme inline {
