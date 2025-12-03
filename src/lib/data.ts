@@ -1,65 +1,23 @@
 export const products = [
     {
-        id: "1",
-        name: "The Classic Chip",
-        description: "Our signature cookie loaded with semi-sweet chocolate chunks and a hint of sea salt.",
+        id: "pb-oatmeal-choco-chip",
+        name: "Peanut Butter Oatmeal Chocolate Chip Cookie",
+        description: "Our signature cookie—soft, chewy, and packed with flavor. Handmade with creamy peanut butter, hearty oats, and premium chocolate chips.",
         price: 4.50,
-        image: "/images/classic-chip.jpg",
-        category: "Classic",
+        image: "/images/pb-oatmeal-choco.jpg",
+        category: "Signature",
         isBestseller: true,
-        allergens: ["Gluten", "Dairy", "Eggs"],
-    },
-    {
-        id: "2",
-        name: "Midnight Double Chocolate",
-        description: "Rich dark chocolate dough with white chocolate chips and cocoa nibs.",
-        price: 4.75,
-        image: "/images/double-chocolate.jpg",
-        category: "Rich",
-        isBestseller: true,
-        allergens: ["Gluten", "Dairy", "Eggs", "Soy"],
-    },
-    {
-        id: "3",
-        name: "Oatmeal Raisin Walnut",
-        description: "Chewy oatmeal cookie with plump raisins and toasted walnuts.",
-        price: 4.50,
-        image: "/images/oatmeal-raisin.jpg",
-        category: "Classic",
-        isBestseller: false,
-        allergens: ["Gluten", "Dairy", "Eggs", "Nuts"],
-    },
-    {
-        id: "4",
-        name: "Birthday Cake",
-        description: "Vanilla sugar cookie with rainbow sprinkles and a white chocolate drizzle.",
-        price: 4.75,
-        image: "/images/birthday-cake.jpg",
-        category: "Fun",
-        isBestseller: true,
-        allergens: ["Gluten", "Dairy", "Eggs"],
-    },
-    {
-        id: "5",
-        name: "Salted Caramel Pretzel",
-        description: "Sweet and salty perfection with caramel bits and crushed pretzels.",
-        price: 5.00,
-        image: "/images/salted-caramel.jpg",
-        category: "Savory",
-        isBestseller: false,
-        allergens: ["Gluten", "Dairy", "Eggs"],
-    },
-    {
-        id: "6",
-        name: "Vegan Choco Chunk",
-        description: "All the flavor of our classic chip, but 100% plant-based.",
-        price: 5.00,
-        image: "/images/vegan-choco.jpg",
-        category: "Vegan",
-        isBestseller: false,
-        allergens: ["Gluten", "Soy", "Nuts"],
+        allergens: ["Gluten", "Dairy", "Eggs", "Peanuts"],
     },
 ]
+
+// Box size pricing configuration
+export const boxPricing = {
+    3: 12.00,   // Placeholder - update with actual pricing
+    4: 16.00,   // Placeholder - update with actual pricing
+    6: 24.00,
+    12: 45.00,
+}
 
 export const reviews = [
     {

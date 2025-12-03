@@ -31,24 +31,10 @@ export function Footer() {
                     </div>
 
                     <div>
-                        <h3 className="text-sm font-semibold text-foreground">Shop</h3>
+                        <h3 className="text-sm font-semibold text-foreground">Quick Links</h3>
                         <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-                            <li><Link href="/shop" className="hover:text-primary">All Cookies</Link></li>
-                            <li><Link href="/subscriptions" className="hover:text-primary">Subscriptions</Link></li>
-                            <li><Link href="/build-box" className="hover:text-primary">Build a Box</Link></li>
-                            <li><Link href="/gifts" className="hover:text-primary">Gifts</Link></li>
-                            <li><Link href="/corporate" className="hover:text-primary">Corporate</Link></li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h3 className="text-sm font-semibold text-foreground">Company</h3>
-                        <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
+                            <li><Link href="/order" className="hover:text-primary">Order Cookies</Link></li>
                             <li><Link href="/story" className="hover:text-primary">Our Story</Link></li>
-                            <li><Link href="/contact" className="hover:text-primary">Contact</Link></li>
-                            <li><Link href="/faq" className="hover:text-primary">FAQ</Link></li>
-                            <li><Link href="/careers" className="hover:text-primary">Careers</Link></li>
-                            <li><Link href="/terms" className="hover:text-primary">Terms & Privacy</Link></li>
                         </ul>
                     </div>
 

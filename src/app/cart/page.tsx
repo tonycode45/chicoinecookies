@@ -1,25 +1,34 @@
+"use client"
+
 import Link from "next/link"
-import { Minus, Plus, Trash2, ArrowRight } from "lucide-react"
+import { Minus, Plus, Trash2, ArrowRight, ShoppingBag } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Container } from "@/components/layout/container"
-import { products } from "@/lib/data"
-
-// Mock cart data
-const cartItems = [
-    {
-        product: products[0],
-        quantity: 2,
-    },
-    {
-        product: products[1],
-        quantity: 1,
-    },
-]
+import { useCart } from "@/lib/cart-context"
 
 export default function CartPage() {
-    const subtotal = cartItems.reduce((acc, item) => acc + item.product.price * item.quantity, 0)
-    const shipping = 5.00
+    const { items, updateQuantity, removeFromCart, totalPrice } = useCart()
+
+    const subtotal = totalPrice
+    const shipping = items.length > 0 ? 5.00 : 0
     const total = subtotal + shipping
+
+    if (items.length === 0) {
+        return (
+            <div className="py-12 md:py-20">
+                <Container>
+                    <div className="text-center py-12">
+                        <ShoppingBag className="w-16 h-16 mx-auto text-muted-foreground/50 mb-4" />
+                        <h1 className="text-3xl font-bold font-serif mb-4">Your cart is empty</h1>
+                        <p className="text-muted-foreground mb-8">Add some delicious cookies to get started!</p>
+                        <Button asChild size="lg">
+                            <Link href="/shop">Browse Cookies</Link>
+                        </Button>
+                    </div>
+                </Container>
+            </div>
+        )
+    }
 
     return (
         <div className="py-12 md:py-20">
@@ -28,7 +37,7 @@ export default function CartPage() {
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                     <div className="lg:col-span-2 space-y-6">
-                        {cartItems.map((item) => (
+                        {items.map((item) => (
                             <div key={item.product.id} className="flex gap-4 p-4 border rounded-lg bg-card">
                                 <div className="h-24 w-24 bg-secondary/30 rounded-md flex items-center justify-center text-2xl font-serif text-muted-foreground/20 shrink-0">
                                     {item.product.name.charAt(0)}
@@ -43,15 +52,26 @@ export default function CartPage() {
                                     </div>
                                     <div className="flex justify-between items-center">
                                         <div className="flex items-center border rounded-md h-8">
-                                            <button className="px-2 hover:bg-secondary/50 transition-colors h-full">
+                                            <button
+                                                onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
+                                                className="px-2 hover:bg-secondary/50 transition-colors h-full"
+                                            >
                                                 <Minus className="w-3 h-3" />
                                             </button>
                                             <span className="w-8 text-center text-sm font-medium">{item.quantity}</span>
-                                            <button className="px-2 hover:bg-secondary/50 transition-colors h-full">
+                                            <button
+                                                onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
+                                                className="px-2 hover:bg-secondary/50 transition-colors h-full"
+                                            >
                                                 <Plus className="w-3 h-3" />
                                             </button>
                                         </div>
-                                        <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-destructive">
+                                        <Button
+                                            variant="ghost"
+                                            size="sm"
+                                            className="text-muted-foreground hover:text-destructive"
+                                            onClick={() => removeFromCart(item.product.id)}
+                                        >
                                             <Trash2 className="w-4 h-4 mr-1" />
                                             Remove
                                         </Button>

@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation"
-import { Star, Minus, Plus, ShoppingBag } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Star } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Container } from "@/components/layout/container"
 import { ProductReviews } from "@/components/features/product/product-reviews"
+import { ProductActions } from "@/components/features/product/product-actions"
 import { products, reviews } from "@/lib/data"
 
 // In a real app, this would fetch data based on the ID
@@ -76,26 +76,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                             </div>
                         </div>
 
-                        <div className="pt-6 border-t">
-                            <div className="flex items-center gap-4 mb-6">
-                                <div className="flex items-center border rounded-md">
-                                    <button className="p-3 hover:bg-secondary/50 transition-colors">
-                                        <Minus className="w-4 h-4" />
-                                    </button>
-                                    <span className="w-12 text-center font-medium">1</span>
-                                    <button className="p-3 hover:bg-secondary/50 transition-colors">
-                                        <Plus className="w-4 h-4" />
-                                    </button>
-                                </div>
-                                <Button size="lg" className="flex-1 text-base">
-                                    <ShoppingBag className="w-5 h-5 mr-2" />
-                                    Add to Cart
-                                </Button>
-                            </div>
-                            <p className="text-sm text-muted-foreground text-center">
-                                Free shipping on orders over $50. Freshness guaranteed.
-                            </p>
-                        </div>
+                        <ProductActions product={product} />
                     </div>
                 </div>
 

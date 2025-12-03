@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { cn } from "@/lib/utils";
+import { CartProvider } from "@/lib/cart-context";
 
 const inter = Inter({
   variable: "--font-geist-sans", // Using the existing variable name for compatibility or I can change it
@@ -34,9 +35,11 @@ export default function RootLayout({
           "antialiased min-h-screen flex flex-col font-sans"
         )}
       >
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <CartProvider>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );
